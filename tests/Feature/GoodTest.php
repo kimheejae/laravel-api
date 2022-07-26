@@ -24,7 +24,7 @@ class GoodTest extends TestCase
         $response->assertStatus(Response::HTTP_CREATED);
 
         //입력한 상품 조회
-        $good=Good::first();
+        $good = Good::first();
         $goodId = $good->goods_no;
 
         $isExist = Good::where('goods_no', '=', $goodId)->count() > 0;
@@ -58,12 +58,12 @@ class GoodTest extends TestCase
         $good->goods_nm='아디다스 모자';
         $good->save();
 
-        $good=Good::first();
+        $good = Good::first();
         $goodId = $good->goods_no;
 
         $url = '/api/v1/goods/'.$goodId;
 
-        $data =[
+        $data = [
             'goods_nm' => 'nike',
             'goods_cont' => '나이키'
         ];
